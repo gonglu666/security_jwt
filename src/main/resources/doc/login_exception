@@ -1,0 +1,31 @@
+1.UsernamePasswordAuthenticationFilter 过滤器之前添加两个过滤器,分别为PreAuthenticationFilter、PostAuthenticationFilter
+
+    PreAuthenticationFilter:
+        如果登录方法不是POST类型,抛AuthMethodNotSupportedException
+        用户名或密码为空,抛AuthenticationServiceException
+
+        LoginAuthenticationSuccessHandler
+            封装token和refreshtoken并返回 抛JwtTokenMalformedException
+        LoginAuthenticationFailureHandler
+            处理异常，并将异常封装成固定格式
+                AuthMethodNotSupportedException
+                UsernameNotFoundException
+                DisabledException
+                BizException
+
+    PreAuthenticationProvider
+        判断用户是否存在,各种自定义业务异常
+        判断用户名和密码是否存在,抛BadCredentialsException
+
+    PostAuthenticationProvider
+        token校验 BadCredentialsException，JwtExpiredTokenException， JwtTokenMalformedException
+
+
+
+
+
+
+
+
+
+
