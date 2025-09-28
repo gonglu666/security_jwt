@@ -59,7 +59,7 @@ public class LoginAuthenticationSuccessHandler implements AuthenticationSuccessH
         loginResponse.setRefreshToken(generateRefreshToken(authentication));
         response.setStatus(HttpStatus.OK.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        CommonResponse<LoginResponse> loginResponseCommonResponse = CommonResponse.ofSuccess(loginResponse);
+        CommonResponse<LoginResponse> loginResponseCommonResponse = CommonResponse.success(loginResponse);
         mapper.writeValue(response.getWriter(), loginResponseCommonResponse);
         clearAuthenticationAttributes(request);
     }

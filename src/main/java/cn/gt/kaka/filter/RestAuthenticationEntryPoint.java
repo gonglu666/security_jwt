@@ -28,7 +28,7 @@ public class RestAuthenticationEntryPoint  implements AuthenticationEntryPoint {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         String errorMessage = authException.getMessage();
         int httpStatusValue = HttpStatus.UNAUTHORIZED.value();
-        CommonResponse<Object> objectCommonResponse = CommonResponse.ofFail(httpStatusValue, "1234", errorMessage);
+        CommonResponse<Object> objectCommonResponse = CommonResponse.failure(httpStatusValue, "1234", errorMessage);
         objectMapper.writeValue(response.getWriter(), objectCommonResponse);
     }
 }
