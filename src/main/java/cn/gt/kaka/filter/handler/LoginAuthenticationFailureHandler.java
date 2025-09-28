@@ -66,7 +66,7 @@ public class LoginAuthenticationFailureHandler implements AuthenticationFailureH
             subCode = 400;
             message = "用户已删除";
         }
-        CommonResponse commonResponse =  CommonResponse.ofFail(subCode,"error code",message);
+        CommonResponse commonResponse =  CommonResponse.failure(subCode,"error code",message);
         mapper.writeValue(response.getWriter(), commonResponse);
     }
 }

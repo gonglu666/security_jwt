@@ -82,8 +82,8 @@ public class LoginController {
 
     @GetMapping ("/version")
     public CommonResponse version() {
-        Map map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         map.put("content","获取版本号成功 1.0.0");
-        return CommonResponse.ofSuccess(map);
+        return CommonResponse.success(map);
     }
 }
